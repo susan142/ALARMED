@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+    <!--
+  * Please see the included README.md file for license terms and conditions.
+  -->
+
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="app_framework/2.1/css/af.ui.min.css">
+        <link rel="stylesheet" type="text/css" href="app_framework/2.1/css/icons.min.css">
+        <title>Blank App Designer Cordova Web App Project Template</title>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+
+        <!--
+  * The "meta viewport" tag (below) helps your app size appropriately to a device's ideal viewport.
+  * Note that Windows device viewports work better when initialized using the @viewport CSS rule.
+  * For a quick overview of "meta viewport" and @viewport, see this article:
+  *   http://webdesign.tutsplus.com/tutorials/htmlcss-tutorials/quick-tip-dont-forget-the-viewport-meta-tag
+  * To see how it works, try your app on a real device with and without a "meta viewport" tag.
+  * Additional useful references include:
+  *   http://www.quirksmode.org/mobile/viewports.html
+  *   http://www.quirksmode.org/mobile/metaviewport/devices.html
+  *   https://developer.apple.com/library/safari/documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html
+-->
+
+        <!-- <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1"> -->
+        <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=no">
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, minimum-scale=1, maximum-scale=2"> -->
+
+        <style>
+            /* following three (cascaded) are equivalent to above three meta viewport statements */
+            /* see http://www.quirksmode.org/blog/archives/2014/05/html5_dev_conf.html */
+            /* see http://dev.w3.org/csswg/css-device-adapt/ */
+                @-ms-viewport { width: 100vw ; min-zoom: 100% ; zoom: 100% ; }          @viewport { width: 100vw ; min-zoom: 100% zoom: 100% ; }
+                @-ms-viewport { user-zoom: fixed ; min-zoom: 100% ; }                   @viewport { user-zoom: fixed ; min-zoom: 100% ; }
+                /*@-ms-viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }   @viewport { user-zoom: zoom ; min-zoom: 100% ; max-zoom: 200% ; }*/
+        </style>
+
+        <link rel="stylesheet" href="css/app.css">
+        <link rel="stylesheet" type="text/css" href="css/index_main.less.css" class="main-less">
+
+        <!-- IMPORTANT: Do not include a weinre script tag as part of your release builds! -->
+        <!-- Place your remote debugging (weinre) script URL from the Test tab here, if it does not work below -->
+        <!-- <script src="http://debug-software.intel.com/target/target-script-min.js#insertabiglongfunkynumberfromthexdkstesttab"></script> -->
+
+        <!-- Recommended location for your JavaScript libraries -->
+        <!-- These library references (below) are just examples to give you the general idea... -->
+        <!-- <script src="lib/mc/hammer.js"></script> -->
+        <!-- <script src="lib/ft/fastclick.js"></script> -->
+        <script type="application/javascript" src="js/mostrarPastilla.js"></script>
+        <script type="application/javascript" src="js/receta.js"></script>
+        <!--
+  * cordova.js is a phantom lib for "Cordova HTML5 web app," it does nothing in a "Standard HTML5 web app"
+  * Seeing a "Failed to load resource: net::ERR_FILE_NOT_FOUND" message caused by this "cordova.js" script?
+  * The cordova.js script is required if you convert your "Standard HTML5" project into a "Cordova" project.
+  * You can safely ignore the error or comment out this line if you will not be developing a Cordova app.
+-->
+        <script src="cordova.js" id="xdkJScordova_"></script>
+
+        <script src="js/app.js"></script>
+        <!-- for your event code, see README and file comments for details -->
+        <script src="js/init-app.js"></script>
+        <!-- for your init code, see README and file comments for details -->
+        <script src="xdk/init-dev.js"></script>
+        <!-- normalizes device and document ready events, see file for details -->
+        <!--            
+            You may substitute jQuery for the App Framework selector library.
+            See http://app-framework-software.intel.com/documentation.php#afui/afui_jquery
+        -->
+        <script type="application/javascript" src="app_framework/2.1/appframework.js"></script>
+        <script type="application/javascript" src="app_framework/2.1/appframework.ui.js" data-ver="1"></script>
+        <script type="application/javascript" src="js/index_user_scripts.js"></script>
+        <script type="application/javascript" src="xdk/appdesigner/js/rest-of-space.js"></script>
+        <script type="application/javascript" src="xdk/ad/af_subpage.js"></script>
+    </head>
+
+    <body id="afui">
+
+        <!-- IMPORTANT: Do not include a weinre script tag as part of your release builds! -->
+        <!-- Place your remote debugging (weinre) script URL from the Test tab here, if it does not work above -->
+        <!-- <script src="http://debug-software.intel.com/target/target-script-min.js#insertabiglongfunkynumberfromthexdkstesttab"></script> -->
+
+        <header class="wrapping-col wrap-element uib_w_6 with-back" data-uib="app_framework/header" data-ver="2" id="af-header-1"><a class="button backButton">Back</a>
+            <h1>Lista de Pastilla</h1>
+        </header>
+        <header class="wrapping-col wrap-element uib_w_14 with-back" data-uib="app_framework/header" data-ver="2" id="af-header-2"><a class="button backButton">Back</a>
+            <h1>Receta</h1>
+        </header>
+        <div class="uwrap" id="content">
+            <div class="upage vertical-col panel Logearse" id="mainpage" data-header="none" data-footer="none">
+                <div class="table-thing with-label widget uib_w_3 d-margins textLogin LogintText" data-uib="app_framework/input" data-ver="1">
+                    <label class="narrow-control label-top-left" for="idUser">User</label>
+
+                    <input class="wide-control" placeholder="Placeholder Text" type="text" id="idUser" value="susan">
+                </div>
+                <div class="table-thing with-label widget uib_w_4 d-margins textLogin LogintText" data-uib="app_framework/input" data-ver="1">
+                    <label class="narrow-control label-top-left" for="IdPassword">Password</label>
+
+                    <input class="wide-control" placeholder="Placeholder Text" type="text" id="IdPassword" value="susan">
+                </div><a class="button widget uib_w_5 d-margins icon key text_Receta" data-uib="app_framework/button" data-ver="1" id="IdLogin">Login</a>
+            </div>
+            <div class="upage vertical-col panel MostrarPstilla" id="IdPageMostrarPastilla" data-header="af-header-1" data-footer="none"><a class="button widget uib_w_13 d-margins Receta_Buton text_Receta icon right" data-uib="app_framework/button" data-ver="1" id="IdVerReceta">Ver Receta</a><a class="button widget uib_w_12 d-margins text_Receta icon graph" data-uib="app_framework/button"
+                data-ver="1" id="IdAgregar">Agregar</a>
+                <ul class="list widget uib_w_8 d-margins" data-uib="app_framework/listview" data-ver="1" id="IdListaPastilla">
+                    <li class="widget uib_w_9" data-uib="app_framework/listitem" data-ver="1"><a>List Item</a>
+                    </li>
+                    <li class="widget uib_w_10" data-uib="app_framework/listitem" data-ver="1"><a>List Item</a>
+                    </li>
+                    <li class="widget uib_w_11" data-uib="app_framework/listitem" data-ver="1"><a>List Item</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="upage vertical-col panel receta" id="IdPageReceta" data-header="af-header-2" data-footer="none">
+                <div class="table-thing with-label widget uib_w_16 d-margins LogintText recetaAdd" data-uib="app_framework/input" data-ver="1">
+                    <label class="narrow-control label-top-left" for="IdNombrePastilla">Nombre de la pastilla</label>
+
+                    <input class="wide-control" placeholder="Placeholder Text" type="text" id="IdNombrePastilla">
+                </div>
+                <div class="table-thing with-label widget uib_w_17 d-margins LogintText recetaAdd" data-uib="app_framework/input" data-ver="1">
+                    <label class="narrow-control label-top-left" for="IdCantidadPastilla">Cantidad de pastillas</label>
+
+                    <input class="wide-control" type="number" id="IdCantidadPastilla">
+                </div>
+                <div class="table-thing with-label widget uib_w_18 d-margins" data-uib="app_framework/input" data-ver="1">
+                    <label class="narrow-control label-inline" for="IdTiempoIntervalo">Tiempo de intervalo de tomas</label>
+                    <input class="wide-control" type="number" id="IdTiempoIntervalo">
+                </div>
+                <div class="table-thing with-label widget uib_w_19 d-margins" data-uib="app_framework/input" data-ver="1">
+                    <label class="narrow-control label-inline" for="IdHoraInicio">Hora de inicio</label>
+                    <input class="wide-control" type="time" id="IdHoraInicio">
+                </div>
+                <div class="table-thing with-label widget uib_w_20 d-margins" data-uib="app_framework/input" data-ver="1">
+                    <label class="narrow-control label-inline">Fecha de inicio</label>
+                    <input class="wide-control" type="date">
+                </div>
+                <div class="table-thing with-label widget uib_w_21 d-margins" data-uib="app_framework/input" data-ver="1">
+                    <label class="narrow-control label-top-left" for="IdNota">Nota</label>
+                    <input class="wide-control" placeholder="Placeholder Text" type="text" id="IdNota">
+                </div><a class="button widget uib_w_22 d-margins icon busy" data-uib="app_framework/button" data-ver="1" id="IdGuardar">Guardar</a>
+                <div class="widget uib_w_28 d-margins" data-uib="app_framework/checkbox" data-ver="1">
+                    <input type="checkbox" id="af-checkbox-0">
+                    <label class="content-box" for="af-checkbox-0">pastilla</label>
+                </div>
+            </div>
+            <div class="upage vertical-col panel MostrarPstilla Logearse" id="IdPageMensaje" data-header="none" data-footer="none">
+                <div class="table-thing with-label widget uib_w_26 d-margins" data-uib="app_framework/input" data-ver="1">
+                    <label class="narrow-control label-inline" for="IdMensaje">Mensaje</label>
+                    <input class="wide-control" placeholder="tiene que tomar paracetamol" type="text" id="IdMensaje">
+                </div><a class="button widget uib_w_27 d-margins" data-uib="app_framework/button" data-ver="1" id="IdAceptar">Aceptar</a>
+            </div>
+        </div>
+
+    </body>
+
+</html>

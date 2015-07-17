@@ -1,0 +1,9 @@
+{
+  "name": "Prueba02",
+  "version": "0.0.2",
+  "dependencies": {
+    "express": "4.8.2",
+    "socket.io": "1.0.6",
+    "body-parser": "~1.12.3"
+  }
+}
