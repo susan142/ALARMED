@@ -12,45 +12,29 @@ var MOSTRARPASTILLA = (function () {
             /* your code goes here */ 
             //$.ui.popup('Hi there');
             //$(evt.target).attr('id');
-            //console.log(evt);
             DEPU=evt;
             var idReceta=$(evt.target).attr('idPastilla');
+            //console.log(idReceta);
             RECETA.cargarReceta(idReceta);
          
         });      
-    };//////////////////////////////////////////////////////////////////////////////////
+    };
+    //////////////////////////////////////////////////////////////////////////////////
     my.cargarPastillas=function(){
        
-        var param={};
-        param.user="susan";
         $.ajax({
             type:"POST",
-            url:"http://192.168.56.1:9095/getMostrarPastillas",
-            data:"data="+JSON.stringify(param),
+            url:"http://192.168.56.104:9095/getMostrarPastillas",
+            //data:"data="+JSON.stringify(param),
             //dataType : 'json',
             dataType : 'text',
             success:function(data){
                 var data=JSON.parse(data);
-                
-                if(data.status===1){
-                    $("#IdListaPastilla").empty();
-                    for(var i=0;i<data.data.length;i++){
-                    
-                        $("#IdListaPastilla").append("<li ><a href='#IdPageReceta' idPastilla="+data.data[i].id+">"+data.data[i].NombrePastilla+"</a></li>");
-                        
-                    }
-                }
-                if(data.status===0){
-                    
-                     navigator.notification.alert(
-                        'ERROR AL CAPTURAR LISTA',  // message
-                        function(){},         // callback
-                        'Mensaje',            // title
-                        'Aceptar'                  // buttonName
-                    );
-                    
-                }
-              
+                console.log(data[0]);
+                $("#idlistpastilla").empty(); //limpiar
+                for(var i=0;i<data.length;i++){
+                    $("#idlistpastilla").append("<li id="+data[i].id+" value="+data[i].id+"><a href='#idPageDetallePastilla'>"+data[i].id+" "+data[i].NombrePastilla+"</a></li>");                       
+                }   
             },
             error:function(data){
             

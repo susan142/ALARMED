@@ -72,81 +72,105 @@
         <script type="application/javascript" src="js/index_user_scripts.js"></script>
         <script type="application/javascript" src="xdk/appdesigner/js/rest-of-space.js"></script>
         <script type="application/javascript" src="xdk/ad/af_subpage.js"></script>
+        <script type="application/javascript" src="app_framework/themeRelease.js"></script>
+        <script type="application/javascript" src="app_framework/pageChangeRepeater.js"></script>
     </head>
 
-    <body id="afui">
+    <body id="afui" class="af">
 
         <!-- IMPORTANT: Do not include a weinre script tag as part of your release builds! -->
         <!-- Place your remote debugging (weinre) script URL from the Test tab here, if it does not work above -->
         <!-- <script src="http://debug-software.intel.com/target/target-script-min.js#insertabiglongfunkynumberfromthexdkstesttab"></script> -->
 
         <header class="wrapping-col wrap-element uib_w_6 with-back" data-uib="app_framework/header" data-ver="2" id="af-header-1"><a class="button backButton">Back</a>
-            <h1>Lista de Pastilla</h1>
+            <h1>Mis Pastillas</h1>
         </header>
         <header class="wrapping-col wrap-element uib_w_14 with-back" data-uib="app_framework/header" data-ver="2" id="af-header-2"><a class="button backButton">Back</a>
             <h1>Receta</h1>
         </header>
+        <header class="wrapping-col wrap-element uib_w_29" data-uib="app_framework/header" data-ver="2" id="af-header-0">
+            <h1>Alarma Medica</h1>
+        </header>
+        <header class="wrapping-col wrap-element uib_w_30 with-back" data-uib="app_framework/header" data-ver="2" id="af-header-3"><a class="button backButton">Back</a>
+            <h1></h1>
+        </header>
         <div class="uwrap" id="content">
-            <div class="upage vertical-col panel Logearse" id="mainpage" data-header="none" data-footer="none">
+            <div class="upage vertical-col panel Logearse" id="mainpage" data-header="af-header-0" data-footer="none">
                 <div class="table-thing with-label widget uib_w_3 d-margins textLogin LogintText" data-uib="app_framework/input" data-ver="1">
-                    <label class="narrow-control label-top-left" for="idUser">User</label>
+                    <label class="narrow-control label-top-left" for="iduser">User</label>
 
-                    <input class="wide-control" placeholder="Placeholder Text" type="text" id="idUser" value="susan">
+                    <input class="wide-control" type="text" id="iduser">
                 </div>
                 <div class="table-thing with-label widget uib_w_4 d-margins textLogin LogintText" data-uib="app_framework/input" data-ver="1">
-                    <label class="narrow-control label-top-left" for="IdPassword">Password</label>
+                    <label class="narrow-control label-top-left" for="idpassword">Password</label>
 
-                    <input class="wide-control" placeholder="Placeholder Text" type="text" id="IdPassword" value="susan">
-                </div><a class="button widget uib_w_5 d-margins icon key text_Receta" data-uib="app_framework/button" data-ver="1" id="IdLogin">Login</a>
+                    <input class="wide-control" type="password" id="idpassword">
+                </div><a class="button widget uib_w_5 d-margins text_Receta icon key" data-uib="app_framework/button" data-ver="1" id="idbtnlogin">Login</a>
             </div>
-            <div class="upage vertical-col panel MostrarPstilla" id="IdPageMostrarPastilla" data-header="af-header-1" data-footer="none"><a class="button widget uib_w_13 d-margins Receta_Buton text_Receta icon right" data-uib="app_framework/button" data-ver="1" id="IdVerReceta">Ver Receta</a><a class="button widget uib_w_12 d-margins text_Receta icon graph" data-uib="app_framework/button"
-                data-ver="1" id="IdAgregar">Agregar</a>
-                <ul class="list widget uib_w_8 d-margins" data-uib="app_framework/listview" data-ver="1" id="IdListaPastilla">
-                    <li class="widget uib_w_9" data-uib="app_framework/listitem" data-ver="1"><a>List Item</a>
-                    </li>
-                    <li class="widget uib_w_10" data-uib="app_framework/listitem" data-ver="1"><a>List Item</a>
-                    </li>
-                    <li class="widget uib_w_11" data-uib="app_framework/listitem" data-ver="1"><a>List Item</a>
+            <div class="upage vertical-col panel MostrarPstilla" id="IdPageMostrarPastilla" data-header="af-header-1" data-footer="none">
+
+                <ul class="list widget uib_w_41 d-margins" data-uib="app_framework/listview" data-ver="1" id="idlistpastilla">
+                    <li class="widget uib_w_42" data-uib="app_framework/listitem" data-ver="1">
+                        <a></a>
                     </li>
                 </ul>
+                <a class="button widget uib_w_12 d-margins text_Receta icon graph" data-uib="app_framework/button" data-ver="1" id="idbtnagregar" href="#IdPageReceta" data-transition="fade">Agregar nueva pastilla</a>
             </div>
             <div class="upage vertical-col panel receta" id="IdPageReceta" data-header="af-header-2" data-footer="none">
                 <div class="table-thing with-label widget uib_w_16 d-margins LogintText recetaAdd" data-uib="app_framework/input" data-ver="1">
-                    <label class="narrow-control label-top-left" for="IdNombrePastilla">Nombre de la pastilla</label>
+                    <label class="narrow-control label-top-left" for="idnombrepastilla">Nombre de la pastilla</label>
 
-                    <input class="wide-control" placeholder="Placeholder Text" type="text" id="IdNombrePastilla">
+                    <input class="wide-control" type="text" id="idnombrepastilla">
                 </div>
                 <div class="table-thing with-label widget uib_w_17 d-margins LogintText recetaAdd" data-uib="app_framework/input" data-ver="1">
-                    <label class="narrow-control label-top-left" for="IdCantidadPastilla">Cantidad de pastillas</label>
+                    <label class="narrow-control label-top-left" for="idnumpastilla">Número de pastillas</label>
 
-                    <input class="wide-control" type="number" id="IdCantidadPastilla">
+                    <input class="wide-control" type="number" id="idnumpastilla">
                 </div>
-                <div class="table-thing with-label widget uib_w_18 d-margins" data-uib="app_framework/input" data-ver="1">
-                    <label class="narrow-control label-inline" for="IdTiempoIntervalo">Tiempo de intervalo de tomas</label>
-                    <input class="wide-control" type="number" id="IdTiempoIntervalo">
+                <div class="table-thing with-label widget uib_w_43 d-margins recetaAdd" data-uib="app_framework/select" data-ver="1">
+                    <label class="narrow-control label-top-left" for="idtiempointervalo">Tiempo Intervalo</label>
+
+                    <select class="wide-control" id="idtiempointervalo">
+                        <option>Cada hora</option>
+                        <option>Cada 2 horas</option>
+                        <option>Cada 3 horas</option>
+                        <option>Cada 4 horas</option>
+                        <option>Cada 6 horas</option>
+                        <option>Cada 8 horas</option>
+                        <option>Cada 12 horas</option>
+                    </select>
                 </div>
-                <div class="table-thing with-label widget uib_w_19 d-margins" data-uib="app_framework/input" data-ver="1">
-                    <label class="narrow-control label-inline" for="IdHoraInicio">Hora de inicio</label>
-                    <input class="wide-control" type="time" id="IdHoraInicio">
+                <div class="table-thing with-label widget uib_w_19 d-margins recetaAdd" data-uib="app_framework/input" data-ver="1">
+                    <label class="narrow-control label-top-left" for="idfechahora">Fecha y Hora inicio</label>
+
+                    <input class="wide-control" type="datetime-local" id="idfechahora">
                 </div>
-                <div class="table-thing with-label widget uib_w_20 d-margins" data-uib="app_framework/input" data-ver="1">
-                    <label class="narrow-control label-inline">Fecha de inicio</label>
-                    <input class="wide-control" type="date">
-                </div>
-                <div class="table-thing with-label widget uib_w_21 d-margins" data-uib="app_framework/input" data-ver="1">
-                    <label class="narrow-control label-top-left" for="IdNota">Nota</label>
-                    <input class="wide-control" placeholder="Placeholder Text" type="text" id="IdNota">
-                </div><a class="button widget uib_w_22 d-margins icon busy" data-uib="app_framework/button" data-ver="1" id="IdGuardar">Guardar</a>
-                <div class="widget uib_w_28 d-margins" data-uib="app_framework/checkbox" data-ver="1">
-                    <input type="checkbox" id="af-checkbox-0">
-                    <label class="content-box" for="af-checkbox-0">pastilla</label>
-                </div>
+
+                <div class="table-thing with-label widget uib_w_35 d-margins recetaAdd" data-uib="app_framework/textarea" data-ver="1">
+                    <label class="narrow-control label-top-left" for="idnota">Nota</label>
+
+                    <textarea class="wide-control" rows="2" wrap="soft" id="idnota"></textarea>
+                </div><a class="button widget uib_w_22 d-margins icon busy text_Receta" data-uib="app_framework/button" data-ver="1" id="idbtnguardar">Guardar</a>
+
             </div>
             <div class="upage vertical-col panel MostrarPstilla Logearse" id="IdPageMensaje" data-header="none" data-footer="none">
                 <div class="table-thing with-label widget uib_w_26 d-margins" data-uib="app_framework/input" data-ver="1">
                     <label class="narrow-control label-inline" for="IdMensaje">Mensaje</label>
                     <input class="wide-control" placeholder="tiene que tomar paracetamol" type="text" id="IdMensaje">
-                </div><a class="button widget uib_w_27 d-margins" data-uib="app_framework/button" data-ver="1" id="IdAceptar">Aceptar</a>
+                </div><a class="button widget uib_w_27 d-margins text_Receta icon check" data-uib="app_framework/button" data-ver="1" id="IdAceptar">Aceptar</a>
+            </div>
+            <div class="upage vertical-col panel detalleNota" id="idPageDetallePastilla" data-header="af-header-3" data-footer="none">
+                <div class="widget uib_w_31 d-margins" data-uib="media/text" data-ver="0" id="idtextdetalle">
+                    <div class="widget-container left-receptacle"></div>
+                    <div class="widget-container right-receptacle"></div>
+                    <div>
+                        <p>&nbsp;</p>
+                    </div>
+                </div>
+
+                <div class="button-grouped flex widget uib_w_36 d-margins" data-uib="app_framework/button_group" data-ver="1"><a class="button widget uib_w_37 icon loading text_Receta modificar" data-uib="app_framework/button" data-ver="1" style="border-left-width: 1px; border-left-style: solid; border-left-color: rgb(102, 102, 102); border-top-left-radius: 6px; border-bottom-left-radius: 6px;">Modificar</a>
+                    <a class="button widget uib_w_38 icon error modificar text_Receta" data-uib="app_framework/button" data-ver="1">Eliminar</a>
+                </div>
             </div>
         </div>
 

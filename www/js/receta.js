@@ -1,14 +1,13 @@
 var RECETA=(function () {
     var my = {};
     ////////////
-    
     my.cargarReceta=function(idReceta){
         var param={};
         param.id=idReceta;
         
         $.ajax({
             type:"POST",
-            url:"http://192.168.56.1:9095/getMostrarReceta",
+            url:"http://192.168.56.104:9095/getMostrarReceta",
             data:"data="+JSON.stringify(param),
             //dataType : 'json',
             dataType : 'text',
